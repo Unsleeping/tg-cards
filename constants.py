@@ -11,6 +11,6 @@ REAL_CHANNELS = [
 
 START_LAYOUT_MESSAGE = "Нажмите \"Начать играть\", чтобы начать новую игру, или \"Авторы\", чтобы узнать об авторах."
 
-is_debug = True
+is_debug = False
 
 CHANNELS = DEBUG_CHANNELS if is_debug else REAL_CHANNELS
