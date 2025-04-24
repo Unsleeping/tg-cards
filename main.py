@@ -15,6 +15,7 @@ logger = logging.getLogger(__name__)
 
 @bot.message_handler(commands=['start'])
 def start(message):
+    print('start', message.from_user)
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     start_button = types.KeyboardButton('/start')
     keyboard.add(start_button)
