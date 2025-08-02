@@ -40,5 +40,8 @@ def check_subscriptions(user_id):
     unsubscribed_channels = get_unsubscribed_channels(user_id)
     return len(unsubscribed_channels) == 0
 
-
-
+def safe_delete_message(chat_id, message_id):
+    try:
+        bot.delete_message(chat_id, message_id)
+    except Exception as e:
+        logger.error(f"Error deleting message {message_id} in chat {chat_id}: {e}")

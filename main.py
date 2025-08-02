@@ -41,7 +41,7 @@ def show_authors(call):
             markup = types.InlineKeyboardMarkup()
             add_start_layout_buttons(markup)
 
-            bot.delete_message(call.message.chat.id, call.message.message_id)
+            safe_delete_message(call.message.chat.id, call.message.message_id)
             bot.send_photo(call.message.chat.id, f, reply_markup=markup)
     else:
         bot.send_message(call.message.chat.id, "Изображение с авторами не найдено.")
@@ -79,7 +79,7 @@ def stop_game(call):
     markup = types.InlineKeyboardMarkup()
     add_start_layout_buttons(markup)
 
-    bot.delete_message(call.message.chat.id, call.message.message_id)
+    safe_delete_message(call.message.chat.id, call.message.message_id)
     bot.send_message(call.message.chat.id, START_LAYOUT_MESSAGE, reply_markup=markup)
 
 
@@ -97,7 +97,7 @@ def send_question(chat_id, message_id):
         markup.add(types.InlineKeyboardButton('Далее', callback_data='next_question'))
         markup.add(types.InlineKeyboardButton('Стоп', callback_data='stop_game'))
 
-        bot.delete_message(chat_id, message_id)
+        safe_delete_message(chat_id, message_id)
         bot.send_photo(chat_id, f, reply_markup=markup)
 
 
