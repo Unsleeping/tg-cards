@@ -6,7 +6,7 @@ import logging
 from constants import START_LAYOUT_MESSAGE
 from init import bot
 from utils import add_subscriptions_buttons, add_start_layout_buttons, get_unsubscribed_channels, \
-    check_subscriptions
+    check_subscriptions, safe_delete_message
 from config import path_to_authors_image, cards_dir
 
 logging.basicConfig(level=logging.INFO)
